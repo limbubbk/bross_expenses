@@ -7,6 +7,11 @@
       <p>{{ $message }}</p>
   </div>
 @endif
+    {{-- <div class="row ">
+        <div class="col  mb-4">
+          <a href="{{ route('register') }}" class="m-2 float-end" > <button class="btn btn-success">Register</button></a>
+        </div>
+    </div> --}}
     <div class="row ">
         <div class="col-md-5  mb-4">
             <div class="card">
