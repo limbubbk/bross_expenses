@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CalculationController;
+
 
 
 
@@ -49,6 +51,9 @@ Route::get('/expenses/delete/{id}', [ExpenseController::class, 'delete'])->name(
 
 //Search 
 Route::get('/Search',[SearchController::Class,'search'])->name('search');
+Route::get('/calculation',[CalculationController::class,'index'])->name('calculation.index');
+Route::get('/calculation/{id}',[CalculationControllerr::class,'cal'])->name('calculation');
+
 
 });
 

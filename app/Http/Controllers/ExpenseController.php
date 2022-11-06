@@ -32,7 +32,7 @@ class ExpenseController extends Controller
     public function delete($id){
         $data=Expense::find($id);
          $data->delete();
-       return redirect()->back()->with('success','Expense Data Deleted !!!');
+       return redirect()->back()->with('delete','Expense Data Deleted !!!');
     }
 
     
@@ -43,13 +43,15 @@ class ExpenseController extends Controller
         return view('expense_edit',compact('demo','categories'));
     }
     public function update(Request $request,$id){
+
+     
       
         $request->validate([
-            'user' => 'required',
+            'user' => 'required|',
             'category' => 'required',
             'description' => 'required',
             'amount' => 'required',
-            // 'date' => 'requred',
+            'date' => 'required',
          
         ]);
         $data =  Expense::find($id);
@@ -62,5 +64,10 @@ class ExpenseController extends Controller
         return redirect()->route('home') ->with('success','Expenses Data Updated successfully.');
       
       
+    }
+
+    public function sum(){
+        $sum=DB::table('expenses')->sum('amount'); 
+        dd($sum);
     }
 }

@@ -17,87 +17,8 @@
           <a href="{{ route('register') }}" class="m-2 float-end" > <button class="btn btn-success">Register</button></a>
         </div>
     </div> --}}
-    <div class="row">
-      <div class="col">
-    <a href="{{route('calculation.index')}}" class="btn btn-info float-end mb-3">Bill</a>
-    </div>
-  </div>
-    <div class="row mt-3">
-    
-        <div class="col-md-5  mb-4">
-            <div class="card">
-                <div class="card-header"><label for=""> Expenses Entry</label> <label class="float-end text-primary"> <a href="{{route('category.index')}}" class="nav-link"><button class="btn btn-primary">Create Category</button></a></label></div>
-                <div class="card-body">
-                    <form action="{{route('expense.store')}}" method="POST">
-                      @csrf
-                        <div class="row">
-                            <div class="col-md-6">
-                          
-                                <label for="exampleInputEmail1" class="form-label fs-5"> User</label>
-                              <div class="mb-3">
-                               
-                                  <select class="form-select form-select-md mb-3" name="user"  aria-label=".form-select-lg example">
-                                     
-                                      <option value="Roshan ">Roshan </option>
-                                      <option value="Bibek ">Bibek </option>
-                                      <option value="Saroj ">Saroj </option>
-                                   
-                                    </select>
-                                    
-                                </div>
-                              </div>
-      
-                            <div class="col-md-6">
-                      
-                        <label for="exampleInputEmail1" class="form-label fs-5">Category</label>
-                        <div class="mb-3">                      
-                    
-                          <select class="form-select form-select-md mb-3" name="category" aria-label=".form-select-lg example">
-                            
-                            @foreach ($categories as $category)
-                           
-                            <option value="{{$category->name}}">{{$category->name}}</option>
-                            @endforeach
-                          </select>
-                        
-                        </div>
-                    </div>
-                          
-                         <div class="col-12">
-                        
-                          <label for="exampleInputEmail1" class="form-label fs-5">Description</label>
-                        <div class="mb-3 form-floating">
-                           
-                            <textarea class="form-control" name="description"  ></textarea>
-                            
-                          </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label fs-5">Amount</label>
-                                <input type="number" class="form-control" name="amount" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                              </div>
-
-                              
-                         
-                          <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label fs-5">Date</label>
-                            <input type="date" class="form-control"  name="date" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            
-                          </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                      </form>
-
-                </div>
-               
-            </div>
-        </div>
+    <div class="row ">
+     
         <div class="col-md-7 col-sm-3 mb-2">
             <div class="card">
               
@@ -170,6 +91,53 @@
     </div>
     <hr>
 
+    {{-- calculation Part Start --}}
+    
+    <div class="row">
+     
+        <label for="" class="fs-1 text-danger">Search Bill Amount</label>
+        <div class="col-3">
+        <form action="">
+         
+            <label for="">Category</label> <label for="">
+          <select class="form-select form-select-md mb-3" name="category" aria-label=".form-select-lg example">
+                            
+            @foreach ($categories as $category)
+           
+            <option value="{{$category->name}}">{{$category->name}}</option>
+            @endforeach
+          </select>
+        </label>
+         
+        </form>
+      </div>
+
+      <div class="col-3">  
+        <form action="">
+       
+            <label for="">User</label>
+            <label for="">
+            <select class="form-select form-select-md mb-3" name="user"  aria-label=".form-select-lg example">
+                                     
+              <option value="Roshan ">Roshan </option>
+              <option value="Bibek ">Bibek </option>
+              <option value="Saroj ">Saroj </option>
+           
+            </select>
+          </label>
+       
+        </form>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-danger">=</button>
+      </div>
+      <div class="col-2">
+    <input class="form-control" placeholder="--------------------">
+      </div>
+
+    </div>
+
+        {{-- calculation Part End --}}
 </div>
 @endsection
 @section('script')

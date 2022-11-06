@@ -27,8 +27,15 @@ class HomeController extends Controller
     public function index()
     {
         $categories=Category::all();
-        $expenses=Expense::orderBy('created_at', 'desc')->simplePaginate(7);
+        $expenses=Expense::orderBy('created_at', 'desc')->simplePaginate(4);
         // dd($expenses);
-        return view('home',compact('categories','expenses'));
+        //sum
+        $sum=DB::table('expenses')->sum('amount'); 
+
+        // dd($sum);
+        return view('home',compact('categories','expenses','sum'));
+        
     }
+
+   
 }

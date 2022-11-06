@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+@if($errors->any())
+    <div class="alert alert-danger">
+        <p><strong>Opps Something went wrong</strong></p>
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+@endif
+
+<div class="container-fluid">
   @if ($message = Session::get('success'))
   <div class="alert alert-success">
       <p>{{ $message }}</p>
@@ -20,8 +31,9 @@
                                 <label for="exampleInputEmail1" class="form-label fs-5"> User : {{$demo->role_name}}</label>
                               <div class="mb-3">
                                
-                                  <select class="form-select form-select-md mb-3" name="user"  aria-label=".form-select-lg example">
+                                  <select class="form-select form-select-md mb-3" name="user"  aria-label=".form-select-lg example" >
                                      
+                                      <option value=" {{$demo->role_name}}"> {{$demo->role_name}} </option>
                                       <option value="Roshan ">Roshan </option>
                                       <option value="Bibek ">Bibek </option>
                                       <option value="Saroj ">Saroj </option>
@@ -35,10 +47,11 @@
                       
                         <label for="exampleInputEmail1" class="form-label fs-5">Category : {{$demo->category}}</label>
                         <div class="mb-3">                      
-                    
+                        
                           <select class="form-select form-select-md mb-3" 
                            name="category" aria-label=".form-select-lg example">
-                            
+                           <option> {{$demo->category}} </option>
+                           <hr>
                             @foreach ($categories as $category)
                            
                             <option value="{{$category->name}}">{{$category->name}}</option>
@@ -71,7 +84,7 @@
                           <div class="col-md-6">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label fs-5">Date : {{$demo->extra_date}}</label>
-                            <input type="date" class="form-control"  name="date" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="date" class="form-control" value="{{$demo->extra_date}}" name="date" id="exampleInputEmail1" aria-describedby="emailHelp">
                             
                           </div>
                         </div>
