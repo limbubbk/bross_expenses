@@ -16,6 +16,7 @@
 <style>
    #bross{
         color: white;
+        font-size: 500%;
       
       
 
@@ -28,7 +29,7 @@
       
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand " href="#">
                         {{-- {{ config('app.name', 'Laravel') }} --}}
                         Bross Expenses Tracker
                     </a>
@@ -74,8 +75,9 @@
        
                
        <br><br><br><br><br><br><br>
-             <h1 class="mt-5 text-center " id="bross">Bross Expenses Tracker</h1>
-     
+             <h1 class="mt-5 text-center d-none d-sm-none d-md-block" > Bross Expenses Tracker</h1>
+           
+            <h4 class="mt-5 text-center d-block d-sm-block d-md-none  d-lg-none">  Bross Expenses Tracker</h4>
                     
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

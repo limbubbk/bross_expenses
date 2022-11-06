@@ -154,7 +154,7 @@
                 </div>
                 @else 
                   <div>
-                    <h5 class="text-danger">No posts found</h5>
+                    <h5 class="text-danger">No Records found</h5>
                  </div>
                 @endif
               
